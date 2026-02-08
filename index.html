@@ -1,25 +1,417 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zhiwu Wang — Math</title>
+  <meta name="description" content="Personal math website: notes, projects, teaching, and contact." />
+
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 2rem;
-      line-height: 1.5;
+    :root{
+      --bg: #0b0f19;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.10);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --faint: rgba(255,255,255,0.55);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 18px;
+      --radius2: 24px;
+      --max: 1080px;
+      --accent: 124 92% 62%;   /* hue/sat/light for HSL */
+      --accent2: 200 92% 62%;
     }
-    h1 {
-      margin-bottom: 0.5rem;
+
+    /* Optional light mode */
+    :root[data-theme="light"]{
+      --bg:#f6f7fb;
+      --panel: rgba(0,0,0,0.04);
+      --panel2: rgba(0,0,0,0.06);
+      --text: rgba(0,0,0,0.90);
+      --muted: rgba(0,0,0,0.68);
+      --faint: rgba(0,0,0,0.54);
+      --border: rgba(0,0,0,0.10);
+      --shadow: 0 18px 60px rgba(0,0,0,0.12);
     }
-    p {
-      margin-top: 0;
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 15% 10%, hsla(var(--accent),0.22), transparent 55%),
+                  radial-gradient(900px 700px at 85% 15%, hsla(var(--accent2),0.16), transparent 60%),
+                  radial-gradient(900px 700px at 50% 95%, rgba(255,255,255,0.08), transparent 60%),
+                  var(--bg);
+      overflow-x:hidden;
     }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .blur{
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:20;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--bg) 72%, transparent);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:12px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 180px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, hsla(var(--accent),0.95), hsla(var(--accent2),0.85));
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+    .brand b{letter-spacing:0.2px}
+    .brand span{display:block; font-size:13px; color:var(--muted); margin-top:-2px}
+
+    nav{display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:center}
+    .pill{
+      padding:8px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      transition: all .18s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{
+      color:var(--text);
+      background: var(--panel);
+      border-color: var(--border);
+    }
+    .pill.active{
+      color:var(--text);
+      background: var(--panel2);
+      border-color: var(--border);
+    }
+
+    .actions{display:flex; gap:10px; align-items:center; min-width: 180px; justify-content:flex-end}
+    .btn{
+      border:1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      padding:8px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      transition: transform .14s ease, background .18s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background: var(--panel2)}
+    .btn:active{transform: translateY(0px)}
+
+    /* Mobile menu */
+    .menuBtn{display:none}
+    @media (max-width: 760px){
+      nav{display:none}
+      nav.open{display:flex; width:100%; padding:10px 0; border-top:1px solid var(--border)}
+      .nav{flex-wrap:wrap}
+      .menuBtn{display:inline-flex}
+      .brand, .actions{min-width:auto}
+      .actions{margin-left:auto}
+    }
+
+    /* Sections */
+    section{padding:44px 0}
+    .hero{
+      padding-top:34px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .heroGrid{grid-template-columns: 1fr}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius: var(--radius2);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .pad{padding:18px}
+    h1{margin:0; font-size:34px; letter-spacing:-0.6px; line-height:1.12}
+    .sub{color:var(--muted); margin-top:10px; max-width: 65ch}
+    .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+    .tag{
+      font-size:13px; color: var(--muted);
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: color-mix(in srgb, var(--panel) 80%, transparent);
+    }
+
+    .quick{
+      display:grid;
+      gap:10px;
+    }
+    .quick a{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 12px;
+      border-radius: 16px;
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 85%, transparent);
+      transition: transform .14s ease, background .18s ease;
+    }
+    .quick a:hover{transform: translateY(-1px); background: var(--panel2)}
+    .quick small{color:var(--muted)}
+    .arrow{opacity:.7}
+
+    h2{margin:0 0 12px; font-size:18px; letter-spacing:-0.2px}
+    .muted{color:var(--muted)}
+
+    /* Notes grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns: repeat(2, 1fr)} }
+    @media (max-width: 620px){ .grid{grid-template-columns: 1fr} }
+
+    .tile{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--panel) 86%, transparent);
+      padding:14px;
+      transition: transform .14s ease, background .18s ease, border-color .18s ease;
+    }
+    .tile:hover{
+      transform: translateY(-2px);
+      background: var(--panel2);
+      border-color: color-mix(in srgb, var(--border) 55%, white 25%);
+    }
+    .tile b{display:block; font-size:15px; margin-bottom:4px}
+    .tile p{margin:0; color:var(--muted); font-size:14px}
+    .tile .meta{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap; color:var(--faint); font-size:12px}
+
+    /* Footer */
+    footer{
+      padding:28px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+    }
+
+    /* Scroll offset for anchor jumps (header height) */
+    .anchor{scroll-margin-top: 82px}
   </style>
 </head>
+
 <body>
-  <h1>Hello</h1>
-  <p>This is a concise HTML page.</p>
+  <header class="blur">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#home">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <b>Zhiwu Wang</b>
+            <span>Math notes & projects</span>
+          </div>
+        </a>
+
+        <button class="btn menuBtn" id="menuBtn" aria-label="Toggle menu">Menu</button>
+
+        <nav id="navLinks" aria-label="Primary">
+          <a class="pill active" href="#home">Home</a>
+          <a class="pill" href="#notes">Notes</a>
+          <a class="pill" href="#projects">Projects</a>
+          <a class="pill" href="#teaching">Teaching</a>
+          <a class="pill" href="#about">About</a>
+          <a class="pill" href="#cv">CV</a>
+        </nav>
+
+        <div class="actions">
+          <button class="btn" id="themeBtn" aria-label="Toggle theme">Theme</button>
+          <a class="btn" href="mailto:your.email@umich.edu">Email</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero anchor">
+      <div class="container">
+        <div class="heroGrid">
+          <div class="card pad">
+            <h1>Combinatorics • Algebra • Geometry</h1>
+            <p class="sub">
+              I’m a student interested in representation theory, algebraic geometry, and the combinatorics behind them.
+              This site hosts my notes, reading logs, and project writeups.
+            </p>
+            <div class="tags">
+              <span class="tag">Representation theory</span>
+              <span class="tag">Algebraic geometry</span>
+              <span class="tag">Category theory</span>
+              <span class="tag">Algebraic topology</span>
+            </div>
+          </div>
+
+          <div class="card pad quick">
+            <h2>Quick links</h2>
+            <a href="#notes"><span><b>Latest notes</b><small>course + reading</small></span><span class="arrow">→</span></a>
+            <a href="#projects"><span><b>Projects</b><small>code + math writeups</small></span><span class="arrow">→</span></a>
+            <a href="#cv"><span><b>CV</b><small>pdf + contact</small></span><span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTES -->
+    <section id="notes" class="anchor">
+      <div class="container">
+        <h2>Notes</h2>
+        <p class="muted">Organized by topic/course. Replace the links with your PDFs or subpages.</p>
+
+        <div class="grid" style="margin-top:14px">
+          <a class="tile" href="./notes/rep-theory.html">
+            <b>Representation Theory</b>
+            <p>Characters, modules, tensor categories, and examples.</p>
+            <div class="meta"><span>PDF + HTML</span><span>Updated weekly</span></div>
+          </a>
+
+          <a class="tile" href="./notes/algebraic-geometry.html">
+            <b>Algebraic Geometry</b>
+            <p>Schemes, morphisms, sheaves, and intuition.</p>
+            <div class="meta"><span>Reading notes</span><span>Examples first</span></div>
+          </a>
+
+          <a class="tile" href="./notes/algebra.html">
+            <b>Algebra</b>
+            <p>Commutative algebra, localization, homological tools.</p>
+            <div class="meta"><span>Course notes</span><span>Exercises</span></div>
+          </a>
+
+          <a class="tile" href="./notes/topology.html">
+            <b>Topology</b>
+            <p>CW complexes, π₁, covering spaces, spectral sequences (eventually).</p>
+            <div class="meta"><span>Sketches</span><span>Proof outlines</span></div>
+          </a>
+
+          <a class="tile" href="./notes/combinatorics.html">
+            <b>Combinatorics</b>
+            <p>Posets, generating functions, cluster-ish things.</p>
+            <div class="meta"><span>Tools</span><span>Examples</span></div>
+          </a>
+
+          <a class="tile" href="./notes/reading-log.html">
+            <b>Reading Log</b>
+            <p>Short summaries + what I learned + next questions.</p>
+            <div class="meta"><span>Chronological</span><span>Searchable</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="anchor">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="card pad">
+          <p class="muted" style="margin:0">
+            Add 2–6 projects here: a 1–2 sentence description, link to GitHub, and (optional) a short “what I learned”.
+          </p>
+          <ul class="muted" style="margin:12px 0 0; padding-left:18px">
+            <li><b>Example:</b> “McKay graphs playground” — computations and visualizations for small groups.</li>
+            <li><b>Example:</b> “Phonetics pipeline” — forced alignment + feature extraction experiments.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching" class="anchor">
+      <div class="container">
+        <h2>Teaching</h2>
+        <div class="card pad">
+          <p class="muted" style="margin:0">
+            Put office hours, discussion notes, or problem session handouts here (even if it’s “coming soon”).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="anchor">
+      <div class="container">
+        <h2>About</h2>
+        <div class="card pad">
+          <p class="muted" style="margin:0">
+            Short bio (3–6 lines). Mention your interests + what kinds of notes are here.
+            Add links: UMich, advisors/mentors, REUs, etc.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="anchor">
+      <div class="container">
+        <h2>CV</h2>
+        <div class="card pad">
+          <p class="muted" style="margin:0">
+            Put your PDF at <code>./assets/cv.pdf</code> and link it here:
+            <a class="pill" style="display:inline-block; margin-left:8px" href="./assets/cv.pdf">Open CV</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+        <span>© <span id="year"></span> Zhiwu Wang</span>
+        <span>
+          <a class="pill" href="https://github.com/ziv-zhiwuwang">GitHub</a>
+          <a class="pill" href="mailto:your.email@umich.edu">Contact</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn?.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Active pill on click (simple)
+    document.querySelectorAll('nav a.pill').forEach(a => {
+      a.addEventListener('click', () => {
+        document.querySelectorAll('nav a.pill').forEach(x => x.classList.remove('active'));
+        a.classList.add('active');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Theme toggle (stores preference)
+    const themeBtn = document.getElementById('themeBtn');
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) root.dataset.theme = saved;
+
+    themeBtn?.addEventListener('click', () => {
+      const next = root.dataset.theme === 'light' ? '' : 'light';
+      if (next) root.dataset.theme = next; else delete root.dataset.theme;
+      localStorage.setItem('theme', next);
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
