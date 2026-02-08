@@ -1,70 +1,47 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zhiwu Wang — Home</title>
-  <link rel="stylesheet" href="./assets/style.css" />
+  <meta charset="utf-8">
+  <title>Zhiwu Wang — Mathematics</title>
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-  <header class="blur">
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="./index.html">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <b>Zhiwu Wang</b>
-            <span>Math notes & projects</span>
-          </div>
-        </a>
 
-        <button class="btn menuBtn" id="menuBtn" aria-label="Toggle menu">Menu</button>
+<header>
+  <nav>
+    <a href="./index.html">Home</a>
+    <a href="./notes.html">Notes</a>
+    <a href="./projects.html">Projects</a>
+    <a href="./teaching.html">Teaching</a>
+    <a href="./about.html">About</a>
+    <a href="./cv.html">CV</a>
+  </nav>
+</header>
 
-        <nav id="navLinks" aria-label="Primary">
-          <a class="pill" href="./index.html">Home</a>
-          <a class="pill" href="./notes.html">Notes</a>
-          <a class="pill" href="./projects.html">Projects</a>
-          <a class="pill" href="./teaching.html">Teaching</a>
-          <a class="pill" href="./about.html">About</a>
-          <a class="pill" href="./cv.html">CV</a>
-        </nav>
+<main>
+  <h1>Zhiwu Wang</h1>
 
-        <div class="actions">
-          <button class="btn" id="themeBtn">Theme</button>
-          <a class="btn" href="mailto:your.email@umich.edu">Email</a>
-        </div>
-      </div>
-    </div>
-  </header>
+  <p>
+    I am an undergraduate student interested in algebra, geometry, and their
+    interactions with combinatorics and topology.
+  </p>
 
-  <main>
-    <div class="container">
-      <div class="card pad">
-        <h1>Combinatorics • Algebra • Geometry</h1>
-        <p class="muted">
-          Welcome! This site hosts my notes, reading logs, and project writeups.
-        </p>
-        <p class="muted">
-          Start here: <a class="pill" href="./notes.html">Notes</a>
-          <a class="pill" href="./projects.html">Projects</a>
-        </p>
-      </div>
-    </div>
-  </main>
+  <p>
+    This website collects my personal mathematical notes, reading logs, and
+    project writeups.
+  </p>
 
-  <footer>
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <span>© <span id="year"></span> Zhiwu Wang</span>
-        <span>
-          <a class="pill" href="https://github.com/ziv-zhiwuwang">GitHub</a>
-          <a class="pill" href="mailto:your.email@umich.edu">Contact</a>
-        </span>
-      </div>
-    </div>
-  </footer>
+  <p>
+    Start here:
+    <a href="./notes.html">Notes</a> ·
+    <a href="./projects.html">Projects</a> ·
+    <a href="./cv.html">CV</a>
+  </p>
+</main>
 
-  <script src="./assets/site.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<footer>
+  <p>© Zhiwu Wang</p>
+</footer>
+
 </body>
 </html>
