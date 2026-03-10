@@ -2,14 +2,233 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zhiwu Wang — Mathematics</title>
-  <link rel="stylesheet" href="./assets/style.css">
+  <style>
+    :root {
+      --bg: #fcfcfb;
+      --surface: #ffffff;
+      --ink: #1f2937;
+      --muted: #5b6470;
+      --line: #d9dee5;
+      --line-dark: #bcc5d0;
+      --accent: #1d4ed8;
+      --maxw: 860px;
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Georgia", "Times New Roman", serif;
+      line-height: 1.72;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(252, 252, 251, 0.96);
+      position: sticky;
+      top: 0;
+    }
+
+    nav {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: 0 auto;
+      padding: 0.9rem 0;
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.98rem;
+    }
+
+    nav a {
+      color: var(--muted);
+    }
+
+    nav a.active {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    main {
+      padding: 3.5rem 0 4rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.45fr 0.85fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 0.55rem 0 0;
+      font-size: 1.08rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lead {
+      margin: 1.35rem 0 0;
+      font-size: 1.06rem;
+      color: var(--ink);
+      max-width: 38rem;
+    }
+
+    .actions {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 1rem;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.2rem;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .panel p {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .panel ul {
+      margin: 0.85rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .panel li {
+      margin: 0.35rem 0;
+      color: var(--ink);
+    }
+
+    .section {
+      margin-top: 2.25rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1.6rem;
+    }
+
+    .section-header {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.22rem;
+      font-weight: 600;
+    }
+
+    .section-header span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.2rem;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.04rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 0.85rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.2rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding-top: 2.4rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <nav>
-    <a href="./index.html">Home</a>
+    <a href="./index.html" class="active">Home</a>
     <a href="./notes.html">Notes</a>
     <a href="./projects.html">Projects</a>
     <a href="./teaching.html">Teaching</a>
@@ -19,24 +238,75 @@
 </header>
 
 <main>
-  <h1>Zhiwu Wang</h1>
+  <div class="container">
+    <section class="hero">
+      <div>
+        <div class="kicker">Mathematics</div>
+        <h1>Zhiwu Wang</h1>
+        <p class="subtitle">Notes, reading, and expository writing</p>
 
-  <p>
-    I am an undergraduate student interested in algebra, geometry, and their
-    interactions with combinatorics and topology.
-  </p>
+        <p class="lead">
+          I am an undergraduate student interested in algebra, geometry, and their interactions with combinatorics and topology.
+        </p>
 
-  <p>
-    This website collects my personal mathematical notes, reading logs, and
-    project writeups.
-  </p>
+        <p class="lead">
+          This site collects personal mathematical notes, reading logs, and project writeups.
+        </p>
 
-  <p>
-    Start here:
-    <a href="./notes.html">Notes</a> ·
-    <a href="./projects.html">Projects</a> ·
-    <a href="./cv.html">CV</a>
-  </p>
+        <div class="actions">
+          <a href="./notes.html">Notes</a>
+          <a href="./projects.html">Projects</a>
+          <a href="./cv.html">Curriculum Vitae</a>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2>Contents</h2>
+        <p>
+          The website is intended as a quiet record of study and ongoing work.
+        </p>
+        <ul>
+          <li><a href="./notes.html">Mathematical notes</a></li>
+          <li><a href="./projects.html">Project writeups</a></li>
+          <li><a href="./teaching.html">Teaching and mentoring</a></li>
+          <li><a href="./cv.html">Curriculum Vitae</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Pages</h2>
+        <span>Selected entry points</span>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Notes</h3>
+          <p>
+            Course notes, reading summaries, and expository mathematics.
+          </p>
+          <a href="./notes.html">Visit notes</a>
+        </article>
+
+        <article class="card">
+          <h3>Projects</h3>
+          <p>
+            Longer-form writeups and independent explorations.
+          </p>
+          <a href="./projects.html">View projects</a>
+        </article>
+
+        <article class="card">
+          <h3>CV</h3>
+          <p>
+            Academic background, current interests, and related experience.
+          </p>
+          <a href="./cv.html">Open CV</a>
+        </article>
+      </div>
+    </section>
+  </div>
 </main>
 
 <footer>
