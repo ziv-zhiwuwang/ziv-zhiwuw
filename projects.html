@@ -2,8 +2,190 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Projects — Zhiwu Wang</title>
-  <link rel="stylesheet" href="./assets/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zhiwu Wang — Projects</title>
+  <style>
+    :root {
+      --bg: #fcfcfb;
+      --surface: #ffffff;
+      --ink: #1f2937;
+      --muted: #5b6470;
+      --line: #d9dee5;
+      --line-dark: #bcc5d0;
+      --accent: #1d4ed8;
+      --maxw: 860px;
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Georgia", "Times New Roman", serif;
+      line-height: 1.72;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(252, 252, 251, 0.96);
+      position: sticky;
+      top: 0;
+    }
+
+    nav {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: 0 auto;
+      padding: 0.9rem 0;
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.98rem;
+    }
+
+    nav a {
+      color: var(--muted);
+    }
+
+    nav a.active {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    main {
+      padding: 3.5rem 0 4rem;
+    }
+
+    .hero {
+      max-width: 42rem;
+    }
+
+    .kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 0.55rem 0 0;
+      font-size: 1.08rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lead {
+      margin: 1.35rem 0 0;
+      font-size: 1.06rem;
+      color: var(--ink);
+    }
+
+    .section {
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1.6rem;
+    }
+
+    .section-header {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.22rem;
+      font-weight: 600;
+    }
+
+    .section-header span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    .projects-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.25rem;
+    }
+
+    .project-card h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 600;
+    }
+
+    .project-book {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .project-book em {
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    .project-card p {
+      margin: 0.8rem 0 0;
+      color: var(--ink);
+      font-size: 0.98rem;
+    }
+
+    .project-links {
+      margin-top: 0.9rem;
+      font-size: 0.97rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.2rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      main {
+        padding-top: 2.4rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -11,7 +193,7 @@
   <nav>
     <a href="./index.html">Home</a>
     <a href="./notes.html">Notes</a>
-    <a href="./projects.html">Projects</a>
+    <a href="./projects.html" class="active">Projects</a>
     <a href="./teaching.html">Teaching</a>
     <a href="./about.html">About</a>
     <a href="./cv.html">CV</a>
@@ -19,24 +201,68 @@
 </header>
 
 <main>
-  <h1>Projects</h1>
+  <div class="container">
+    <section class="hero">
+      <div class="kicker">Mathematics</div>
+      <h1>Projects</h1>
+      <p class="subtitle">Independent work and longer expository writing</p>
 
-  <p>
-    This page lists selected mathematical and computational projects.
-  </p>
+      <p class="lead">
+        This page collects selected projects, writeups, and longer mathematical explorations.
+        I am especially interested in algebra, geometry, and related areas.
+      </p>
+    </section>
 
-  <h2>McKay Graphs for Finite Groups</h2>
-  <p>
-    Computational and theoretical exploration of McKay graphs for small finite
-    groups and their connections to representation theory.
-  </p>
+    <section class="section">
+      <div class="section-header">
+        <h2>Selected Projects</h2>
+        <span>Writeups and ongoing work</span>
+      </div>
 
-  <h2>Phonetic Feature Extraction Pipeline</h2>
-  <p>
-    Python-based pipeline for extracting and analyzing phonetic features from
-    aligned speech data.
-  </p>
+      <div class="projects-list">
 
+        <!-- First project -->
+        <article class="project-card">
+          <h3>Solutions to <em>Algebra</em></h3>
+          <div class="project-book">
+            by Serge Lang
+          </div>
+          <p>
+            A collection of detailed solutions and notes based on <em>Algebra</em>.
+            The project focuses on developing a deeper understanding of core structures
+            in modern algebra, including field theory, Galois theory, and modules.
+          </p>
+          <div class="project-links">
+            <a href="#">View</a>
+          </div>
+        </article>
+
+        <!-- Other projects -->
+        <article class="project-card">
+          <h3>Project Title Two</h3>
+          <p>
+            A brief summary of another project. This format works well for expository notes,
+            independent studies, or reading projects.
+          </p>
+          <div class="project-links">
+            <a href="#">View</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>Project Title Three</h3>
+          <p>
+            You can also use this section for ongoing projects. If something is unfinished,
+            you can simply note that it is in progress.
+          </p>
+          <div class="project-links">
+            <a href="#">View</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </div>
 </main>
 
 <footer>
