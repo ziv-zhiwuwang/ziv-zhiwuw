@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zhiwu Wang — Algebra Ch1 Problem 1</title>
 
+  <!-- Computer Modern / LaTeX-like font via KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
   <!-- MathJax -->
   <script>
     window.MathJax = {
-      tex: { inlineMath: [['\\(','\\)']] },
+      tex: {
+        inlineMath: [['\\(','\\)'], ['$', '$']],
+        displayMath: [['\\[','\\]']]
+      },
       svg: { fontCache: 'global' }
     };
   </script>
@@ -18,20 +24,33 @@
     :root {
       --bg: #fcfcfb;
       --surface: #ffffff;
-      --ink: #1f2937;
-      --muted: #5b6470;
+      --ink: #111111;
+      --muted: #5f6368;
       --line: #d9dee5;
       --accent: #1d4ed8;
+      --orange: #c96f2d;
+      --orange-bg: #fbf6f2;
       --maxw: 880px;
       --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: Georgia, serif;
-      line-height: 1.8;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .MathJax,
+    mjx-container {
+      font-size: 1em !important;
     }
 
     a {
@@ -39,7 +58,9 @@
       text-decoration: none;
     }
 
-    a:hover { text-decoration: underline; }
+    a:hover {
+      text-decoration: underline;
+    }
 
     .container {
       width: min(calc(100% - 2rem), var(--maxw));
@@ -61,12 +82,14 @@
       margin: 0;
       font-size: 2rem;
       font-weight: 600;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
     }
 
     .subtitle {
       margin-top: 0.4rem;
       color: var(--muted);
       font-style: italic;
+      font-size: 1rem;
     }
 
     .back {
@@ -76,23 +99,75 @@
 
     .card {
       margin-top: 2rem;
-      padding: 1.4rem 1.5rem;
+      padding: 1.55rem 1.6rem 1.7rem;
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius);
     }
 
-    .label {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
+    .problem-box {
+      border: 1.5px solid var(--orange);
+      background: var(--orange-bg);
+      padding: 0.95rem 1.1rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .problem-title {
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      font-size: 1rem;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .problem-box p,
+    .solution p {
+      margin: 0.55rem 0;
+      font-size: 1.06rem;
+      color: #111111;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
     }
 
     .solution {
-      margin-top: 1.4rem;
       border-top: 1px solid var(--line);
       padding-top: 1rem;
+    }
+
+    .proof-label {
+      font-style: italic;
+      font-weight: 500;
+      color: #000000;
+      font-size: 1.08rem;
+      margin-bottom: 0.35rem;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .qed {
+      text-align: right;
+      margin-top: 0.8rem;
+      font-size: 1.05rem;
+      color: #000000;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    mjx-container[display="true"] {
+      margin: 0.7rem 0 !important;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .card {
+        padding: 1.2rem 1.1rem 1.3rem;
+      }
+
+      .problem-box p,
+      .solution p,
+      .proof-label {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -115,31 +190,30 @@
 
     <div class="card">
 
-      <div class="label">Problem</div>
-      <p>
-        Let \( G \) be a group. Show that the identity element is unique.
-      </p>
+      <div class="problem-box">
+        <div class="problem-title">Problem 1.</div>
+        <p>
+          Let \( G \) be a group. Show that the identity element is unique.
+        </p>
+      </div>
 
       <div class="solution">
-        <div class="label">Solution</div>
+        <div class="proof-label">Proof.</div>
 
         <p>
           Suppose \( e \) and \( e' \) are identity elements in \( G \).
         </p>
 
         <p>
-          Then
-          \[
-          e \cdot e' = e'
-          \quad \text{and} \quad
-          e \cdot e' = e.
-          \]
+          Then \( e \cdot e' = e' \) since \( e \) is an identity, and
+          \( e \cdot e' = e \) since \( e' \) is an identity.
         </p>
 
         <p>
-          Hence \( e = e' \), so the identity is unique.
+          Hence \( e = e' \), so the identity element is unique.
         </p>
 
+        <div class="qed">□</div>
       </div>
 
     </div>
