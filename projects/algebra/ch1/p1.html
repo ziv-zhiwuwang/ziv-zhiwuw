@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zhiwu Wang — Algebra Ch1 Problem 1</title>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    :root {
+      --bg: #fcfcfb;
+      --surface: #ffffff;
+      --ink: #1f2937;
+      --muted: #5b6470;
+      --line: #d9dee5;
+      --accent: #1d4ed8;
+      --maxw: 880px;
+      --radius: 10px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      padding: 0.9rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    main {
+      padding: 3rem 0 4rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      margin-top: 0.4rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .back {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .card {
+      margin-top: 2rem;
+      padding: 1.4rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .solution {
+      margin-top: 1.4rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="../../../projects.html">Projects</a>
+</header>
+
+<main>
+  <div class="container">
+
+    <h1><em>Algebra</em> — Chapter 1, Problem 1</h1>
+    <p class="subtitle">Solution</p>
+
+    <div class="back">
+      <a href="../ch1.html">← Problems</a>
+    </div>
+
+    <div class="card">
+
+      <div class="label">Problem</div>
+      <p>
+        Let \( G \) be a group. Show that the identity element is unique.
+      </p>
+
+      <div class="solution">
+        <div class="label">Solution</div>
+
+        <p>
+          Suppose \( e \) and \( e' \) are identity elements in \( G \).
+        </p>
+
+        <p>
+          Then
+          \[
+          e \cdot e' = e'
+          \quad \text{and} \quad
+          e \cdot e' = e.
+          \]
+        </p>
+
+        <p>
+          Hence \( e = e' \), so the identity is unique.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
