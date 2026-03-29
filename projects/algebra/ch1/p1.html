@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zhiwu Wang — Algebra Ch1 Problem 1</title>
 
-  <!-- Computer Modern / LaTeX-like font via KaTeX -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
-  <!-- MathJax -->
   <script>
     window.MathJax = {
       tex: {
@@ -143,7 +141,6 @@
     }
 
     .qed {
-      text-align: right;
       margin-top: 0.8rem;
       font-size: 1.05rem;
       color: #000000;
@@ -191,9 +188,9 @@
     <div class="card">
 
       <div class="problem-box">
-        <div class="problem-title">Problem 1.</div>
+        <div class="problem-title">Exercise 1.1.</div>
         <p>
-          Let \( G \) be a group. Show that the identity element is unique.
+          Show that every group of order \( \leq 5 \) is abelian.
         </p>
       </div>
 
@@ -201,19 +198,36 @@
         <div class="proof-label">Proof.</div>
 
         <p>
-          Suppose \( e \) and \( e' \) are identity elements in \( G \).
+          For \( n = 1,2,3,5 \), the group are cyclic. It remains to show the case when \( n = 4 \).
+          Choose \( x \in G \), where \( x \neq e \). Suppose that \( \operatorname{ord}(x) = 4 \),
+          then \( G \) is cyclic, and we are done. Suppose that there is no such element of order \( 4 \)
+          in \( G \), then every element that is not \( e \) has order \( 2 \). We show that
+        </p>
+
+        <p style="text-align:center;">
+          \[
+          xy = yx
+          \]
         </p>
 
         <p>
-          Then \( e \cdot e' = e' \) since \( e \) is an identity, and
-          \( e \cdot e' = e \) since \( e' \) is an identity.
+          for all \( x,y \in G \). i.e. \( xyx^{-1}y^{-1} = e \). Since every element of \( G \)
+          satisfies \( x^2 = e \), \( x = x^{-1} \). Therefore,
         </p>
 
         <p>
-          Hence \( e = e' \), so the identity element is unique.
+          \[
+          \begin{aligned}
+          (xy)(x^{-1})(y^{-1}) &= (xy)(xy)\\
+          &= (xy)^2\\
+          &= e
+          \end{aligned}
+          \]
         </p>
 
-        <div class="qed">□</div>
+        <p>
+          Hence we complete the proof.
+        </p>
       </div>
 
     </div>
