@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zhiwu Wang — Algebra Ch5 Problem 1</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)'], ['$', '$']],
+        displayMath: [['\\[','\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    :root {
+      --bg: #fcfcfb;
+      --surface: #ffffff;
+      --ink: #111111;
+      --muted: #5f6368;
+      --line: #d9dee5;
+      --accent: #1d4ed8;
+      --orange: #c96f2d;
+      --orange-bg: #fbf6f2;
+      --maxw: 880px;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .MathJax,
+    mjx-container {
+      font-size: 1em !important;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      padding: 0.9rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    main {
+      padding: 3rem 0 4rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .subtitle {
+      margin-top: 0.4rem;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .back {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .card {
+      margin-top: 2rem;
+      padding: 1.55rem 1.6rem 1.7rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .problem-box {
+      border: 1.5px solid var(--orange);
+      background: var(--orange-bg);
+      padding: 0.95rem 1.1rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .problem-title {
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      font-size: 1rem;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .problem-box p,
+    .solution p {
+      margin: 0.55rem 0;
+      font-size: 1.06rem;
+      color: #111111;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .solution {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+
+    .proof-label {
+      font-style: italic;
+      font-weight: 500;
+      color: #000000;
+      font-size: 1.08rem;
+      margin-bottom: 0.35rem;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .qed {
+      margin-top: 0.8rem;
+      font-size: 1.05rem;
+      color: #000000;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    mjx-container[display="true"] {
+      margin: 0.7rem 0 !important;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .card {
+        padding: 1.2rem 1.1rem 1.3rem;
+      }
+
+      .problem-box p,
+      .solution p,
+      .proof-label {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="../../../projects.html">Projects</a>
+</header>
+
+<main>
+  <div class="container">
+
+    <h1><em>Algebra</em> — Chapter 5, Problem 2</h1>
+    <p class="subtitle">Solution</p>
+
+    <div class="back">
+      <a href="../ch5.html">← Problems</a>
+    </div>
+
+    <div class="card">
+
+      <div class="problem-box">
+        <div class="problem-title">Exercise 5.1.</div>
+        <p>
+          Let \( E = F(\alpha) \), where \( \alpha \) is algebraic over \( F \) of odd degree.
+          Show that \( E = F(\alpha^2) \).
+        </p>
+      </div>
+
+      <div class="solution">
+        <div class="proof-label">Proof.</div>
+
+        <p>
+          We have the trivial inclusion
+        </p>
+
+        <p>
+          \[
+          F(\alpha^2)\subseteq F(\alpha).
+          \]
+        </p>
+
+        <p>
+          Since
+        </p>
+
+        <p>
+          \[
+          [F(\alpha):F]=[F(\alpha):F(\alpha^2)] [F(\alpha^2):F],
+          \]
+        </p>
+
+        <p>
+          it suffices to show that \( [F(\alpha):F(\alpha^2)] \), i.e. the degree of the minimal
+          polynomial of \( \alpha \) over \( F(\alpha^2) \), is \(1\). Since \( \alpha \) satisfies
+        </p>
+
+        <p>
+          \[
+          x^2-\alpha^2,
+          \]
+        </p>
+
+        <p>
+          we conclude that
+        </p>
+
+        <p>
+          \[
+          [F(\alpha):F(\alpha^2)]\leq 2.
+          \]
+        </p>
+
+        <p>
+          If it were \(2\), then the right-hand side of
+        </p>
+
+        <p>
+          \[
+          [F(\alpha):F]=[F(\alpha):F(\alpha^2)] [F(\alpha^2):F]
+          \]
+        </p>
+
+        <p>
+          would be even. But by assumption the left-hand side \( [F(\alpha):F] \) is odd. This is a
+          contradiction. Hence
+        </p>
+
+        <p>
+          \[
+          [F(\alpha):F(\alpha^2)]=1.
+          \]
+        </p>
+
+        <p>
+          Therefore \(F(\alpha)=F(\alpha^2)\).
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

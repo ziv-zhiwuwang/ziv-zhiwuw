@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zhiwu Wang — Algebra Ch5 Problem 3</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)'], ['$', '$']],
+        displayMath: [['\\[','\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    :root {
+      --bg: #fcfcfb;
+      --surface: #ffffff;
+      --ink: #111111;
+      --muted: #5f6368;
+      --line: #d9dee5;
+      --accent: #1d4ed8;
+      --orange: #c96f2d;
+      --orange-bg: #fbf6f2;
+      --maxw: 880px;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .MathJax,
+    mjx-container {
+      font-size: 1em !important;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      padding: 0.9rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    main {
+      padding: 3rem 0 4rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .subtitle {
+      margin-top: 0.4rem;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .back {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .card {
+      margin-top: 2rem;
+      padding: 1.55rem 1.6rem 1.7rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .problem-box {
+      border: 1.5px solid var(--orange);
+      background: var(--orange-bg);
+      padding: 0.95rem 1.1rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .problem-title {
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      font-size: 1rem;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .problem-box p,
+    .solution p {
+      margin: 0.55rem 0;
+      font-size: 1.06rem;
+      color: #111111;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .solution {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+
+    .proof-label {
+      font-style: italic;
+      font-weight: 500;
+      color: #000000;
+      font-size: 1.08rem;
+      margin-bottom: 0.35rem;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    .qed {
+      margin-top: 0.8rem;
+      font-size: 1.05rem;
+      color: #000000;
+      font-family: "KaTeX_Main", "Latin Modern Roman", "CMU Serif", serif;
+    }
+
+    mjx-container[display="true"] {
+      margin: 0.7rem 0 !important;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .card {
+        padding: 1.2rem 1.1rem 1.3rem;
+      }
+
+      .problem-box p,
+      .solution p,
+      .proof-label {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="../../../projects.html">Projects</a>
+</header>
+
+<main>
+  <div class="container">
+
+    <h1><em>Algebra</em> — Chapter 5, Problem 3</h1>
+    <p class="subtitle">Solution</p>
+
+    <div class="back">
+      <a href="../ch5.html">← Problems</a>
+    </div>
+
+    <div class="card">
+
+      <div class="problem-box">
+        <div class="problem-title">Exercise 5.3.</div>
+        <p>
+          Let \( \alpha \) and \( \beta \) be two elements which are algebraic over \( F \).
+          Let \( f(X)=\operatorname{Irr}(\alpha,F,X) \) and
+          \( g(X)=\operatorname{Irr}(\beta,F,X) \). Suppose that \( \deg f \) and \( \deg g \)
+          are relatively prime. Show that \( g \) is irreducible in the polynomial ring
+          \( F(\alpha)[X] \).
+        </p>
+      </div>
+
+      <div class="solution">
+        <div class="proof-label">Proof.</div>
+
+        <p>
+          Since \( \alpha \) and \( \beta \) are algebraic, we have
+        </p>
+
+        <p>
+          \[
+          [F(\alpha):F]=\deg f
+          \quad \text{and}\quad
+          [F(\beta):F]=\deg g.
+          \]
+        </p>
+
+        <p>
+          We also have two towers:
+        </p>
+
+        <p>
+          \[
+          [F(\alpha,\beta):F]=[F(\alpha,\beta):F(\alpha)][F(\alpha):F],
+          \]
+        </p>
+
+        <p>
+          \[
+          [F(\alpha,\beta):F]=[F(\alpha,\beta):F(\beta)][F(\beta):F].
+          \]
+        </p>
+
+        <p>
+          So we see that \( \deg f\mid [F(\alpha,\beta):F] \) and
+          \( \deg g\mid [F(\alpha,\beta):F] \). Since \( \deg f \) and \( \deg g \) are relatively
+          prime,
+        </p>
+
+        <p>
+          \[
+          \deg f\cdot \deg g\mid [F(\alpha,\beta):F].
+          \]
+        </p>
+
+        <p>
+          We also have the inequality
+        </p>
+
+        <p>
+          \[
+          \begin{aligned}
+          [F(\alpha,\beta):F]
+          &= [F(\alpha,\beta):F(\alpha)][F(\alpha):F]\\
+          &\leq [F(\beta):F]\,[F(\alpha):F]\\
+          &= \deg f\cdot \deg g.
+          \end{aligned}
+          \]
+        </p>
+
+        <p>
+          Hence
+        </p>
+
+        <p>
+          \[
+          [F(\alpha,\beta):F]=\deg f\cdot \deg g.
+          \]
+        </p>
+
+        <p>
+          Therefore
+        </p>
+
+        <p>
+          \[
+          [F(\alpha,\beta):F(\alpha)]=\deg g.
+          \]
+        </p>
+
+        <p>
+          This means that the minimal polynomial of \( \beta \) over \( F(\alpha) \) has degree
+          \( \deg g \). Since \( g \in F[X]\subseteq F(\alpha)[X] \) has \( \beta \) as a root, the
+          minimal polynomial of \( \beta \) over \( F(\alpha) \) divides \( g \). The two polynomials
+          have the same degree, so they are equal up to a nonzero scalar. Hence \(g\) is irreducible
+          in \(F(\alpha)[X]\).
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
