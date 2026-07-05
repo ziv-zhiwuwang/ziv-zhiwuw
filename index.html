@@ -76,10 +76,6 @@
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: 3rem;
-      align-items: end;
       padding-bottom: 2.7rem;
       border-bottom: 1px solid var(--line);
     }
@@ -94,32 +90,33 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(3rem, 6.2vw, 5.2rem);
-      line-height: 0.98;
+      font-size: clamp(3.2rem, 7vw, 5.2rem);
+      line-height: 1.02;
       font-weight: 600;
       letter-spacing: -0.04em;
+      white-space: nowrap;
     }
 
     .subtitle {
-      margin: 0.75rem 0 0;
+      margin: 0.7rem 0 0;
       font-size: 1.2rem;
       color: var(--muted);
       font-style: italic;
     }
 
     .intro-text {
-      padding-bottom: 0.2rem;
+      max-width: 760px;
+      margin-top: 1.65rem;
     }
 
     .lead {
       margin: 0;
       font-size: 1.12rem;
       color: var(--ink);
-      max-width: 36rem;
     }
 
     .lead + .lead {
-      margin-top: 1rem;
+      margin-top: 0.95rem;
       color: var(--muted);
     }
 
@@ -208,18 +205,9 @@
         padding-top: 2.8rem;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 1.6rem;
-        align-items: start;
-      }
-
       h1 {
         font-size: clamp(2.8rem, 13vw, 4.5rem);
-      }
-
-      .lead {
-        max-width: 42rem;
+        white-space: normal;
       }
 
       .grid {
@@ -249,11 +237,9 @@
 <main>
   <div class="container">
     <section class="hero">
-      <div>
-        <div class="kicker">Mathematics</div>
-        <h1>Zhiwu Wang</h1>
-        <p class="subtitle">Notes and relavent information</p>
-      </div>
+      <div class="kicker">Mathematics</div>
+      <h1>Zhiwu Wang</h1>
+      <p class="subtitle">Notes and relavent information</p>
 
       <div class="intro-text">
         <p class="lead">
